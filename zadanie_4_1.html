@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Krzywa Kocha</title>
+</head>
+
+<body bgcolor="#d3f6c6">
+    <h1>Krzywa Kocha</h1>
+    <label for="order">Stopień rekurencji:</label>
+    <input type="number" id="order" min="0" value="3" onchange="updateOrder()"><br><br>
+    <label for="size">Długość boku:</label>
+    <input type="number" id="size" min="1" value="400" onchange="updateSize()"><br><br>
+    <label for="colorPicker">Kolor pióra:</label>
+    <input type="color" id="colorPicker" value="#006400" onchange="updatePenColor()"><br><br>
+    <p id="check"></p>
+    <canvas id="Koch" height="600" width="1000">
+        zmień przeglądarkę
+    </canvas>
+    <script src="zadanie_4_1.js"></script>
+</body>
+
+</html>
