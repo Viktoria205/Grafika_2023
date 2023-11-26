@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Memory Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            background-color: #FFFFFF;
+            margin-top: 70px;
+        }
+
+        #tryAgainBtn {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body bgcolor = "FFCCFF">
+    <canvas id="memoryGame" width="352" height="442">
+        Twoja przeglądarka nie obsługuje tegu canvas.
+    </canvas>
+    <div>
+        <p id="player1Counter">Player 1: 0</p>
+        <p id="player2Counter">Player 2: 0</p>
+        <p id="currentPlayer">Current Player: 1</p>
+        <p id="winnerMessage"></p>
+    </div>
+    <button id="tryAgainBtn" onclick="tryAgain()">Try again</button>
+
+    <script src = "zadanie_4.js"></script>
+</body>
+</html>

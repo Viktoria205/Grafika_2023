@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Kółko i krzyżyk</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        canvas {
+            border: 2px solid #333;
+            margin-bottom: 10px;
+        }
+
+        #tryAgainButton {
+            height: 50px;
+            width: 100px;
+        }
+
+        #win {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .cell.X {
+            color: red;
+        }
+
+        .cell.O {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Play now: <span id="curPlyr">X</span></h3>
+        <canvas id="KolkoKrzyzyk" width="450" height="450">
+            Twoja przeglądarka nie obsługuje tegu canvas.
+        </canvas>
+        <button id="tryAgainButton" onClick="window.location.reload();" style="height:50px;width:100px;display: table;margin: 0 auto">TRY AGAIN</button>
+        <br><h3 id='win' style='display: table; margin: 0 auto'></h3><br>
+    </div>
+    <script src="zadanie_3.js"></script>
+</body>
+</html>
