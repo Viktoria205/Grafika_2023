@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<head>
+    <title>Three.js Scene</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <div id="WebGL-output"></div>
+
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://rawgit.com/mrdoob/stats.js/master/build/stats.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(function () {
+            var stats = initStats();
+
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(new THREE.Color(0xFFCCFF), 1.0);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMapEnabled = true;
+
+            var controls = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube2 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube3 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube4 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube5 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube6 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube7 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube8 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube9 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            var controlsCube10 = new function () {
+                this.rotationSpeed = 0.02;
+            };
+            
+            var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+
+            var cube = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0xff0000 }));
+            var cube2 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
+            var cube3 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0xf0c000 }));
+            var cube4 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x0000ff }));
+            var cube5 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0xffff00 }));
+            var cube6 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x00ffff }));
+            var cube7 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0xff00ff }));
+            var cube8 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x990000 }));
+            var cube9 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x009900 }));
+            var cube10 = new THREE.Mesh(cubeGeometry, new THREE.MeshBasicMaterial({ color: 0x000099 }));  
+
+            cube.position.set(-4, 3, 0);
+            cube2.position.set(4, 5, 0);
+            cube3.position.set(5, 12, 7);
+            cube4.position.set(0, 3, -10);
+
+            cube5.position.set(35, -8, 0);
+            cube6.position.set(0, -10, 8);
+            cube7.position.set(-20, 3, -8);
+
+            cube8.position.set(-13, 5, 0);
+            cube9.position.set(5, 15, -12);
+            cube10.position.set(0, 3, 12);
+
+            scene.add(cube);
+            scene.add(cube2);
+            scene.add(cube3);
+            scene.add(cube4);
+            scene.add(cube5);
+            scene.add(cube6);
+            scene.add(cube7);
+            scene.add(cube8);
+            scene.add(cube9);
+            scene.add(cube10);
+
+            camera.position.set(-30, 40, 30);
+            camera.lookAt(scene.position);
+            var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+            scene.add(ambientLight);
+
+            $("#WebGL-output").append(renderer.domElement);
+
+            var step = 0;
+
+            function render() {
+                stats.update();
+
+                cube.rotation.x += controls.rotationSpeed;
+                cube.rotation.y += controls.rotationSpeed;
+                cube.rotation.z -= controls.rotationSpeed;
+
+                cube2.rotation.x += controlsCube2.rotationSpeed;
+                cube2.rotation.y -= controlsCube2.rotationSpeed;
+                cube2.rotation.z += controlsCube2.rotationSpeed;
+
+                cube3.rotation.x -= controlsCube3.rotationSpeed;
+                cube3.rotation.y += controlsCube3.rotationSpeed;
+                cube3.rotation.z += controlsCube3.rotationSpeed;
+
+                cube4.rotation.x += controlsCube4.rotationSpeed;
+                cube4.rotation.y += controlsCube4.rotationSpeed;
+                cube4.rotation.z += controlsCube4.rotationSpeed;
+
+                cube5.rotation.x -= controlsCube5.rotationSpeed;
+                cube5.rotation.y += controlsCube5.rotationSpeed;
+                cube5.rotation.z -= controlsCube5.rotationSpeed;
+
+                cube6.rotation.x += controlsCube6.rotationSpeed;
+                cube6.rotation.y += controlsCube6.rotationSpeed;
+                cube6.rotation.z += controlsCube6.rotationSpeed;
+
+                cube7.rotation.x += controlsCube7.rotationSpeed;
+                cube7.rotation.y -= controlsCube7.rotationSpeed;
+                cube7.rotation.z -= controlsCube7.rotationSpeed;
+
+                cube8.rotation.x += controlsCube8.rotationSpeed;
+                cube8.rotation.y += controlsCube8.rotationSpeed;
+                cube8.rotation.z += controlsCube8.rotationSpeed;
+
+                cube9.rotation.x -= controlsCube9.rotationSpeed;
+                cube9.rotation.y += controlsCube9.rotationSpeed;
+                cube9.rotation.z -= controlsCube9.rotationSpeed;
+
+                cube10.rotation.x += controlsCube10.rotationSpeed;
+                cube10.rotation.y += controlsCube10.rotationSpeed;
+                cube10.rotation.z += controlsCube10.rotationSpeed;
+                requestAnimationFrame(render);
+                renderer.render(scene, camera);
+            }
+
+            render();
+            function initStats() {
+                var stats = new Stats();
+                stats.setMode(0);
+                stats.domElement.style.position = 'absolute';
+                stats.domElement.style.left = '0px';
+                stats.domElement.style.top = '0px';
+                $("#Stats-output").append(stats.domElement);
+                return stats;
+            }
+        });
+    </script>
+</body>
+</html>
